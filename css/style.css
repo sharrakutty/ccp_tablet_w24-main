@@ -264,37 +264,41 @@ a[href="#main"]:focus {
             grid-template-columns: repeat(4, 1fr);
           }
 }
-
-@media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-    }
   
-    nav {
-      background-color: #444;
-    }
+  body.dark {
+    background-color: #333; /* Dark background when user prefers dark color scheme */
+  }
   
-    nav ul li a {
-      color: #ddd;
-    }
-  
-    nav ul li a:hover {
-      background-color: #555;
-    }
-  
-    nav ul li.active a {
-      background-color: #666;
-    }
-  
-    h1, h2 {
-      color: #fff;
-    }
-  
-    a {
-      color: #bbb;
-    }
-  
-    .main-picture {
-      filter: brightness(50%);
+  @media (prefers-color-scheme: dark) {
+    body.light {
+      background-color: #333; /* Dark background when user prefers dark color scheme */
+      /* Apply other dark theme styles here */
+      nav {
+        background-color: #444;
+      }
+    
+      nav ul li a {
+        color: #ddd;
+      }
+    
+      nav ul li a:hover {
+        background-color: #555;
+      }
+    
+      nav ul li.active a {
+        background-color: #666;
+      }
+    
+      h1, h2 {
+        color: #fff;
+      }
+    
+      a {
+        color: #bbb;
+      }
+    
+      .main-picture {
+        filter: brightness(50%);
+      }
     }
   }
