@@ -50,7 +50,19 @@ nav ul li.active a {
     background-color: #6B1D59;
 }
 
-
+.skip {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #000;
+    z-index: 1000;
+  }
+  
+  .skip:focus {
+    top: 0;
+  }
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -134,9 +146,19 @@ a {
     overflow: hidden;
 }
 
-@media (prefers-reduced-motion) {
-    .img-grid img {
-        animation-play-state: paused;
+@media screen and (prefers-reduced-motion: reduce){
+    html{
+        scroll-behavior: auto;
+    }
+  
+    .skip a{
+      -webkit-transition: none;
+      transition: none;        
+     }
+  
+    /*Turn off parallax*/
+    header{
+      background-attachment: initial;
     }
 }
 
@@ -180,11 +202,99 @@ img {
 
 a[href="#main"]:focus {
     transform: translateY(0%);
-  }
+}
   
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     a[href="#main"] {
       display: none;
+
+    }
+    .nav {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+    
+    .nav ul {
+        flex-wrap: nowrap;
+      }
+    
+    .nav ul li {
+        margin-right: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+    .nav ul li:hover {
+        background-color: #5F9C3A;
+      }
+      
+}
+
+@keyframes example-animation {
+
+}
+    
+.animated-element {
+      animation: example-animation 1s infinite;
+}
+    
+@media screen and (min-width: 768px) {
+        nav ul li {
+          position: relative;
+        }
+      
+        nav ul li ul {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          display: none;
+          background-color: #306E11;
+          padding: 10px;
+          border-radius: 5px;
+        }
+      
+        nav ul li:hover ul {
+          display: block;
+        }
+
+        .container {
+            grid-template-columns: repeat(2, 1fr);
+          } 
+        
+          .img-grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+    }
+  
+    nav {
+      background-color: #444;
+    }
+  
+    nav ul li a {
+      color: #ddd;
+    }
+  
+    nav ul li a:hover {
+      background-color: #555;
+    }
+  
+    nav ul li.active a {
+      background-color: #666;
+    }
+  
+    h1, h2 {
+      color: #fff;
+    }
+  
+    a {
+      color: #bbb;
+    }
+  
+    .main-picture {
+      filter: brightness(50%);
     }
   }
-
